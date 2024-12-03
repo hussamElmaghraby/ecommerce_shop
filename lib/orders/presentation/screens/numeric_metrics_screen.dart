@@ -1,9 +1,15 @@
+import 'package:ecommerce_shop/app/core/routing/route_names.dart';
 import 'package:ecommerce_shop/orders/domain/entities/order_entity.dart';
 import 'package:ecommerce_shop/orders/presentation/bloc/cubits/order_cubit.dart';
 import 'package:ecommerce_shop/orders/presentation/bloc/states/order_states.dart';
 import 'package:ecommerce_shop/orders/presentation/widgets/metrics_card_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gap/gap.dart';
+import 'package:get/get.dart';
+import 'package:get/get_navigation/src/bottomsheet/bottomsheet.dart';
+
+import 'graph_screen.dart';
 
 class NumericMetricsScreen extends StatelessWidget {
   NumericMetricsScreen({super.key});
@@ -26,7 +32,7 @@ class NumericMetricsScreen extends StatelessWidget {
             },
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 MetricCardWidget(
                   title: 'Total Count',
@@ -43,6 +49,19 @@ class NumericMetricsScreen extends StatelessWidget {
                   value: numOfReturns.toString(),
                   color: const Color(0xFFfd989e),
                 ),
+                const Gap(20),
+                GestureDetector(
+                  onTap: (){
+                    Get.toNamed(AppRoutes.GRAPH, arguments:GraphScreenArgs(orders: _orders) );
+                  },
+                  child: const Text('Go to Graph' , style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.blue,
+                    decoration: TextDecoration.underline,
+                    decorationColor:  Colors.blue,
+                  ),),
+                )
               ],
             ),
           ),
@@ -55,10 +74,7 @@ class NumericMetricsScreen extends StatelessWidget {
     double totalPrice = 0.0;
     if (_orders?.isNotEmpty == true) {
       for (OrderEntity order in _orders!) {
-        String priceString =
-            order.price?.replaceAll('\$', '').replaceAll(',', '') ?? '';
-        double price = double.parse(priceString);
-        totalPrice += price;
+        totalPrice += order.price ?? 0.0;
       }
       return (totalPrice / _orders!.length).toStringAsFixed(2);
     }

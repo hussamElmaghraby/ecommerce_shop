@@ -28,16 +28,20 @@ class OrderModel with _$OrderModel {
     @JsonKey(name: "registered") String? registered,
   }) = _OrderModel;
 
-  OrderEntity toEntity() => OrderEntity(
-      id: id,
-      isActive: isActive,
-      price: price,
-      company: company,
-      picture: picture,
-      buyer: buyer,
-      tags: tags,
-      registered: registered,
-      status: mappedStatus);
+  OrderEntity toEntity() {
+
+
+
+   return OrderEntity(
+        id: id,
+        isActive: isActive,
+        company: company,
+        picture: picture,
+        buyer: buyer,
+        tags: tags,
+        status: mappedStatus);
+  }
+
 
   OrderStatus get mappedStatus {
     switch (status) {
