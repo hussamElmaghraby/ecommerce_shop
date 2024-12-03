@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
-
+import '';
 import 'app/app.dart';
+import 'inits/injector.dart';
 
 void main(){
-
-  runApp(App());
+  configureDependencies();
+  runApp(const App());
 }
