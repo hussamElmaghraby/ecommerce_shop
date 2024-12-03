@@ -10,7 +10,7 @@ class OrdersDataSource {
   Future<List<OrderModel>> getOrders() async {
     // await Future.delayed(const Duration(milliseconds: 1000));
     final String response =
-        await rootBundle.loadString('assets/data/orders_data.json');
+        await rootBundle.loadString('assets/data/order_data.json');
     return orderModelFromJson(response);
   }
 }
