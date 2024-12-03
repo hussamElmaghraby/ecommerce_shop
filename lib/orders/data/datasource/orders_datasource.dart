@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:ecommerce_shop/app/features/orders/data/models/order_model.dart';
+import 'package:ecommerce_shop/orders/data/models/order_model.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 

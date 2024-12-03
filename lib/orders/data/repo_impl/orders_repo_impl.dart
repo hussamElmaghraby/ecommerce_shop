@@ -1,7 +1,7 @@
-import 'package:ecommerce_shop/app/features/orders/data/datasource/orders_datasource.dart';
-import 'package:ecommerce_shop/app/features/orders/data/models/order_model.dart';
-import 'package:ecommerce_shop/app/features/orders/domain/entities/order_entity.dart';
-import 'package:ecommerce_shop/app/features/orders/domain/repositories/orders_repository.dart';
+import 'package:ecommerce_shop/orders/data/datasource/orders_datasource.dart';
+import 'package:ecommerce_shop/orders/data/models/order_model.dart';
+import 'package:ecommerce_shop/orders/domain/entities/order_entity.dart';
+import 'package:ecommerce_shop/orders/domain/repositories/orders_repository.dart';
 import 'package:injectable/injectable.dart';
 
 @Injectable(as: OrderRespository)

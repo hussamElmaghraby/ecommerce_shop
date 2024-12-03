@@ -1,4 +1,4 @@
-import 'package:ecommerce_shop/app/features/orders/domain/entities/order_entity.dart';
+import 'package:ecommerce_shop/orders/domain/entities/order_entity.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'dart:convert';
 
