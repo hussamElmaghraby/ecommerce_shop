@@ -36,7 +36,21 @@ class OrderModel with _$OrderModel {
       picture: picture,
       buyer: buyer,
       tags: tags,
-      registered: registered);
+      registered: registered,
+      status: mappedStatus);
+
+  OrderStatus get mappedStatus {
+    switch (status) {
+      case Status.DELIVERED:
+        return OrderStatus.DELIVERED;
+      case Status.ORDERED:
+        return OrderStatus.ORDERED;
+      case Status.RETURNED:
+        return OrderStatus.RETURNED;
+      case null:
+        return OrderStatus.ORDERED;
+    }
+  }
 
   factory OrderModel.fromJson(Map<String, dynamic> json) =>
       _$OrderModelFromJson(json);

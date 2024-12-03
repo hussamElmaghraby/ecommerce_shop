@@ -1,5 +1,6 @@
 class OrderEntity {
   final String? id;
+  final OrderStatus? status;
   final bool? isActive;
   final String? price;
   final String? company;
@@ -17,5 +18,12 @@ class OrderEntity {
     required this.buyer,
     required this.tags,
     required this.registered,
+    required this.status,
   });
+}
+
+enum OrderStatus {
+  DELIVERED,
+  ORDERED,
+  RETURNED,
 }
